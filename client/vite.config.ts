@@ -1,10 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+// import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+// import autoprefixer from "autoprefixer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
   base: "/",
-  plugins: [react()],
+  plugins: [
+    react(),
+    // vanillaExtractPlugin(),
+  ],
   preview: {
     port: 8080,
     strictPort: true,
@@ -12,7 +20,10 @@ export default defineConfig({
   server: {
     port: 8080,
     strictPort: true,
-    host: true,
-    origin: "http://0.0.0.0:8080",
   },
+  // css: {
+  //   postcss: {
+  //     plugins: [autoprefixer()],
+  //   },
+  // },
 });
